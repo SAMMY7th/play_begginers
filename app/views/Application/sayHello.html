@@ -1,0 +1,24 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Hello ${myName ?: 'guest'}!</h1>
+
+<table class="table">
+#{list items:user.posts, as:'post'}
+    <tr>
+        <td>${post.user.id}</td>
+        <td>${post.user.name}</td>
+        <td>${post.message}</td>
+    </tr>
+#{/list}
+</table>
+
+<table class="table">
+#{list items:posts, as:'post'}
+    <tr>
+        <td>${post.user.id}</td>
+        <td>${post.user.name}</td>
+        <td>${post.message}</td>
+    </tr>
+#{/list}
+</table>

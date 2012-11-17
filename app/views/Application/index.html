@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{ifErrors}
+    <div class="alert alert-error">
+        <ul>
+        #{errors}
+            <li>${error}</li>
+        #{/errors}
+        </ul>
+    </div>
+#{/ifErrors}
+
+#{if flash.error}
+    <div class="alert alert-error">
+        ${flash.error}
+    </div>
+#{/if}
+
+#{form @Application.sayHello()}
+    <input text="text" name="myName" value="${flash.myName}"/>
+    <input text="text" name="message" value="${flash.message}"/>
+    <button type="submit" class="btn">Say Hello!</button>
+#{/form}
+
+#{if session.logged}<p>${session.logged}がログイン！</p>#{/if}
